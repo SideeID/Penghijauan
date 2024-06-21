@@ -1,4 +1,4 @@
-name: Auto commit
+name: Penghijauan
 
 on:
 
@@ -20,10 +20,10 @@ jobs:
          persist-credentials: false
          fetch-depth: 0
 
-      - name: Modify last update
+      - name: Update file
         run: |
           d=`date '+%Y-%m-%dT%H:%M:%SZ'`
-          echo $d > UPDATE
+          echo "$d by SideID" > UPDATE
           
       - name: Commit changes
         run: |
