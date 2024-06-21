@@ -31,16 +31,16 @@ jobs:
           git config --local user.name "SideeID"
           git add -A
           
-          arr[0]="chore(bot): 🗿 test auto commit :v"
-          arr[1]="chore(bot): 😱 test auto commit :v"
-          arr[2]="chore(bot): 🤓 test auto commit :v"
-          arr[3]="chore(bot): 🥶 test auto commit :v"
-          arr[4]="chore(bot): 🙏 test auto commit :v"
-          arr[5]="chore(bot): 💀 test auto commit :v"
-          arr[6]="chore(bot): 😵 test auto commit :v"
-          arr[7]="chore(bot): 🤡 test auto commit :v"
-          arr[8]="chore(bot): 👻 test auto commit :v"
-          arr[9]="chore(bot): 👶🏿 test auto commit :v"
+          arr[0]="🗿 test auto commit :v"
+          arr[1]="😱 test auto commit :v"
+          arr[2]="🤓 test auto commit :v"
+          arr[3]="🥶 test auto commit :v"
+          arr[4]="🙏 test auto commit :v"
+          arr[5]="💀 test auto commit :v"
+          arr[6]="😵 test auto commit :v"
+          arr[7]="🤡 test auto commit :v"
+          arr[8]="👻 test auto commit :v"
+          arr[9]="👶🏿 test auto commit :v"
           
           rand=$[$RANDOM % ${#arr[@]}]
           
