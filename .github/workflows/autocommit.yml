@@ -1,0 +1,53 @@
+name: Auto commit
+
+on:
+
+  push:
+    branches:
+      - master
+      
+  schedule:
+  - cron: "0 7,9,11 * * 1,3"
+
+jobs:
+  auto_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: DEBUG 
+        run: echo "::debug::Ref = ${{github.ref}}"
+      - uses: actions/checkout@v3      
+        with:
+         persist-credentials: false
+         fetch-depth: 0
+
+      - name: Modify last update
+        run: |
+          d=`date '+%Y-%m-%dT%H:%M:%SZ'`
+          echo $d > UPDATE
+          
+      - name: Commit changes
+        run: |
+          git config --local user.email "sandipratama164026@gmail.com"
+          git config --local user.name "SideeID"
+          git add -A
+          
+          arr[0]="chore(bot): 🗿 test auto commit :v"
+          arr[1]="chore(bot): 😱 test auto commit :v"
+          arr[2]="chore(bot): 🤓 test auto commit :v"
+          arr[3]="chore(bot): 🥶 test auto commit :v"
+          arr[4]="chore(bot): 🙏 test auto commit :v"
+          arr[5]="chore(bot): 💀 test auto commit :v"
+          arr[6]="chore(bot): 😵 test auto commit :v"
+          arr[7]="chore(bot): 🤡 test auto commit :v"
+          arr[8]="chore(bot): 👻 test auto commit :v"
+          arr[9]="chore(bot): 👶🏿 test auto commit :v"
+          
+          rand=$[$RANDOM % ${#arr[@]}]
+          
+          git commit -m "${arr[$rand]}"
+          
+      - name: GitHub Push
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          directory: "."
+          github_token: ${{ secrets.GITHUB_TOKEN }}
